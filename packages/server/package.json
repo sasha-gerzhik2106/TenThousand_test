@@ -1,0 +1,24 @@
+{
+  "name": "@google-forms-lite/server",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@apollo/client": "^4.1.6",
+    "@apollo/server": "^4.10.0",
+    "@google-forms-lite/shared": "*",
+    "body-parser": "^1.20.4",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "graphql": "^16.13.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "nodemon": "^3.1.14",
+    "tsx": "^4.21.0",
+    "typescript": "^6.0.2"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "google-forms-lite",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "graphql-codegen": "graphql-codegen -c graphql-codegen.ts",
+    "dev:server": "npm run dev --workspace=@google-forms-lite/server",
+    "dev:client": "npm run dev --workspace=@google-forms-lite/client"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^6.2.1",
+    "@graphql-codegen/typescript-resolvers": "^5.1.7",
+    "concurrently": "^8.2.2"
+  }
+}

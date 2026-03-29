@@ -1,0 +1,56 @@
+enum QuestionType {
+  TEXT
+  MULTIPLE_CHOICE
+  CHECKBOX
+  DATE
+}
+
+type Question {
+  id: ID!
+  text: String!
+  type: QuestionType!
+  options: [String!]!
+  required: Boolean!
+  answers: [String!]!
+}
+
+type Form {
+  id: ID!
+  title: String!
+  description: String
+  isTemplate: Boolean!
+  questions: [Question!]!
+  createdAt: String!
+  updatedAt: String!
+}
+
+input CreateFormTemplateQuestion {
+  text: String!
+  type: QuestionType!
+  options: [String!]!
+  required: Boolean!
+}
+
+input AnswerInput {
+  text: String!
+  type: QuestionType!
+  options: [String!]!
+  required: Boolean!
+  answers: [String!]!
+}
+
+type Query {
+  templates: [Form!]!
+  template(id: ID!): Form
+  submittedForms: [Form!]!
+  submittedForm(id: ID!): Form
+}
+
+type Mutation {
+  createFormTemplate(
+    title: String!
+    description: String
+    questions: [CreateFormTemplateQuestion!]!
+  ): Form!
+  submitForm(formId: ID!, questions: [AnswerInput!]!): Form!
+}
